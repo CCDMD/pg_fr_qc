@@ -1490,12 +1490,12 @@ sub std_problem_grader {
 
 	unless ($ansCount >	0 )	{
 
-		$problem_result{msg} = "This problem did not ask any questions.";
+		$problem_result{msg} = maketext("This problem did not ask any questions.");
 		return(\%problem_result,\%problem_state);
 	}
 
 	if ($ansCount >	1 )	{
-		$problem_result{msg} = 'In order to	get	credit for this	problem	all	answers	must be	correct.' ;
+		$problem_result{msg} = maketext('In order to get credit for this problem all answers must be correct.');
 	}
 
 	unless ($form_options{answers_submitted} ==	1) {
