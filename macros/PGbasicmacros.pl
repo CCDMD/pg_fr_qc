@@ -1389,11 +1389,11 @@ sub END_ONE_COLUMN { MODES(TeX =>
                             Latex2HTML => ' ', HTML => ' ');
 
 };
-sub SOLUTION_HEADING { MODES( TeX => '\\par {\\bf Solution: }',
-                 Latex2HTML => '\\par {\\bf Solution: }',
-          		 HTML =>  '<P><B>Solution:</B> ');
+sub SOLUTION_HEADING { MODES( TeX => '\\par {\\bf Solution : }',
+                 Latex2HTML => '\\par {\\bf Solution : }',
+          		 HTML =>  '<P><B>Solution :</B> ');
 };
-sub HINT_HEADING { MODES( TeX => "\\par {\\bf Hint: }", Latex2HTML => "\\par {\\bf Hint: }", HTML => "<P><B>Hint:</B> "); };
+sub HINT_HEADING { MODES( TeX => "\\par {\\bf Indice : }", Latex2HTML => "\\par {\\bf Indice : }", HTML => "<P><B>Indice :</B> "); };
 sub US { MODES(TeX => '\\_', Latex2HTML => '\\_', HTML => '_');};  # underscore, e.g. file${US}name
 sub SPACE { MODES(TeX => '\\ ',  Latex2HTML => '\\ ', HTML => '&nbsp;');};  # force a space in latex, doesn't force extra space in html
 sub BBOLD { MODES(TeX => '{\\bf ',  Latex2HTML => '{\\bf ', HTML => '<B>'); };
