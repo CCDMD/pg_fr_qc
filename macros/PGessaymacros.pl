@@ -58,6 +58,7 @@ sub essay_cmp {
 	my %response_options = @_;
 	
 	$student->{original_student_ans} = (defined $student->{original_student_ans})? $student->{original_student_ans} :'';
+
 	my $answer_value = $student->{original_student_ans};
 
 	# always returns false but stuff should check for the essay flag and avoid the red highlighting
@@ -97,13 +98,10 @@ sub  NAMED_ESSAY_BOX {
 	my $answer_value = '';
 	$answer_value = $inputs_ref->{$name} if defined( $inputs_ref->{$name} );
 	$name = RECORD_ANS_NAME($name, $answer_value);
-	$answer_value =~ tr/$@//d;   #`## make sure student answers can not be interpolated by e.g. EV3
+#	$answer_value =~ tr/$@//d;   #`## make sure student answers can not be interpolated by e.g. EV3
 
 	#### Answer Value needs to have special characters replaced by the html codes
-	$answer_value =~ s/\\/\&\#92;/g;
-	$answer_value =~ s/</\&lt;/g; 
-	$answer_value =~ s/>/\&gt;/g;
-	$answer_value =~ s/`/&#96;/g;
+	$answer_value = encode_pg_and_html($answer_value);
 
 	# Get rid of tabs since they mess up the past answer db
 	$answer_value =~ s/\t/\&nbsp;\&nbsp;\&nbsp;\&nbsp;\&nbsp;/;
