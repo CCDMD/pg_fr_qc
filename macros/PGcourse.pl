@@ -14,7 +14,7 @@ sub _PGcourse_init {};
  ####	Presume that faculty observers are given TA status (permission 5).
  $observe = ($effectivePermissionLevel >=  5) ;	####	TA or Professor (permission 10)
  
- loadMacros( "problemRandomize.pl" ) ;
+ loadMacros("PGanswermacros.pl", "problemRandomize.pl" ) ;
  
  ####	Allow a Guest or Observer to always get a new version of problem.
 
