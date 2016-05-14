@@ -14,7 +14,7 @@ sub _PGcourse_init {};
  ####	Presume that faculty observers are given TA status (permission 5).
  $observe = ($effectivePermissionLevel >=  5) ;	####	TA or Professor (permission 10)
  
- loadMacros( "problemRandomize.pl" ) ;
+ loadMacros("PGanswermacros.pl", "problemRandomize.pl" ) ;
  
  ####	Allow a Guest or Observer to always get a new version of problem.
 
@@ -23,9 +23,9 @@ sub _PGcourse_init {};
  
  ####	Allow everybody else (e.g., a student) to get a new version (for more practice)
  ####	after correct answer(s) to first (scored) version OR after the assignment's due date
- $when = (time >= $main::dueDate ? "Always" : "Correct");
- ProblemRandomize( when => $when, onlyAfterDue => 0, style => "Button", label => "Générer une nouvelle version")
- 	if	not ($guest or $observe) ;
+# $when = (time >= $main::dueDate ? "Always" : "Correct");
+# ProblemRandomize( when => "Always", onlyAfterDue => 1, style => "Button", label => "Générer une nouvelle version")
+ #	if	not ($guest or $observe) ;
  
 #loadMacros("source.pl");
 
