@@ -110,7 +110,7 @@ MultiPart calls to get answer rules).
 
 =cut
 
-loadMacros('MathObjects.pl','contextString.pl');
+loadMacros('MathObjects.pl');
 
 sub _parserRadioButtons_init {parserRadioButtons::Init()}; # don't reload this file
 
@@ -157,7 +157,7 @@ sub new {
     unless ref($choices) eq 'ARRAY';
   Value::Error("A RadioButton's second argument should be the correct button choice")
     unless defined($value) && $value ne "";
-  my $context = Parser::Context->getCopy("String");
+  my $context = Parser::Context->getCopy("Numeric");
   my %choiceHash = $self->choiceHash;
   $context->strings->add(map {$_=>{}} (keys %choiceHash));
   $value = $self->correctChoice($value);
